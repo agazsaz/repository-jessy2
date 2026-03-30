@@ -100,8 +100,7 @@ public:
                 cout << "взято " << move << " спичек" << endl;
                 lastMoveByPlayer = false;
             }
-            
-            // Проверка окончания игры
+            // Проверка конца игры
             if (rem == 0) {
                 cout << "\n=====================" << endl;
                 if (lastMoveByPlayer) 
@@ -111,7 +110,6 @@ public:
                 cout << "=====================" << endl;
                 break;
             }
-            
             playerTurn = !playerTurn;   // смена хода
         }
     }
@@ -133,26 +131,21 @@ public:
 
 int main() {
     int n, p;
-    
     cout << "=== ИГРА СО СПИЧКАМИ ===" << endl;
     cout << "Введите количество спичек: ";
     cin >> n;
     cout << "Введите максимум за ход: ";
     cin >> p;
-    
     MatchGame game(n, p);
     game.analysis();
-    
     cout << "\nКто ходит первым? (1 - игрок, 2 - компьютер): ";
     char choice;
     cin >> choice;
-    
     if (choice == '2') {
         MatchGame game2(n, p);
         game2.play();
     } else {
         game.play();
     }
-    
     return 0;
 }
